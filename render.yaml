@@ -7,10 +7,14 @@ services:
     buildCommand: |
       pip install -r requirements.txt
     startCommand: |
-      gunicorn -w 2 -k gthread -b 0.0.0.0:$PORT app:app
+      gunicorn -w 1 -k gthread --threads 8 --timeout 180 -b 0.0.0.0:$PORT app:app
     envVars:
       - key: OPENAI_API_KEY
         sync: false
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PIP_NO_CACHE_DIR
+        value: "1"
     disk:
       name: downloads
       mountPath: /opt/render/project/src/downloads
