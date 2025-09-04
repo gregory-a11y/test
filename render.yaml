@@ -11,6 +11,8 @@ services:
     envVars:
       - key: OPENAI_API_KEY
         sync: false
+      - key: INSTAGRAM_SESSIONID
+        sync: false
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: PIP_NO_CACHE_DIR

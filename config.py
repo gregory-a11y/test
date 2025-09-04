@@ -8,6 +8,8 @@ class Config:
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
     # Dossier des fichiers téléchargés (persistance configurée côté Render)
     DOWNLOAD_FOLDER = "downloads"
+    # Optionnel: cookie de session Instagram pour contourner le login/rate limit côté serveur
+    INSTAGRAM_SESSIONID = os.getenv("INSTAGRAM_SESSIONID", "")
     ALLOWED_HOSTS = ["www.instagram.com", "instagram.com"]
     
     @staticmethod
