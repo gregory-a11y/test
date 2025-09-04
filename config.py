@@ -10,6 +10,8 @@ class Config:
     DOWNLOAD_FOLDER = "downloads"
     # Optionnel: cookie de session Instagram pour contourner le login/rate limit côté serveur
     INSTAGRAM_SESSIONID = os.getenv("INSTAGRAM_SESSIONID", "")
+    # Optionnel: proxy HTTP/HTTPS (ex: http://user:pass@host:port)
+    HTTP_PROXY_URL = os.getenv("HTTP_PROXY_URL", "")
     ALLOWED_HOSTS = ["www.instagram.com", "instagram.com"]
     
     @staticmethod

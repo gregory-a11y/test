@@ -27,9 +27,12 @@ class InstagramDownloader:
                 'audioformat': 'mp3',
                 'http_headers': {
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8'
+                    'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                    'Referer': 'https://www.instagram.com/'
                 },
                 'cookies': cookies,
+                # Proxy optionnel
+                'proxy': getattr(Config, 'HTTP_PROXY_URL', '') or None,
                 'postprocessors': [{
                     'key': 'FFmpegExtractAudio',
                     'preferredcodec': 'mp3',
@@ -82,9 +85,11 @@ class InstagramDownloader:
                 'outtmpl': f'{self.download_folder}/%(title)s.%(ext)s',
                 'http_headers': {
                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8'
+                    'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                    'Referer': 'https://www.instagram.com/'
                 },
                 'cookies': cookies,
+                'proxy': getattr(Config, 'HTTP_PROXY_URL', '') or None,
                 # Pas d'extraction audio
             }
             
